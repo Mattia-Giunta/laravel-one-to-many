@@ -48,6 +48,37 @@
                 </div>
             </div>
 
+            {{-- select per selezionare il tipo --}}
+            <div class="mb-3">
+
+                <label for="type_id" class="form-label">Type</label>
+
+                <select
+                class="
+                form-select
+                form-select-md
+                @error('type_id')
+                    is_invalid
+                @enderror"
+                name="type_id"
+                id="type_id">
+
+                    <option selected value="">Select One</option>
+
+                    @foreach ($types as $item)
+
+                        <option value="{{ $item->id }}"{{ $item->id == old('type_id', $projects->type ? $projects->type->id : '') ? 'selected' : ''}}>
+
+                            {{ $item->name }}
+
+                        </option>
+
+                    @endforeach
+
+                </select>
+
+            </div>
+
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
                 <textarea class="form-control" name="content" id="content" rows="3">{{ old('content') ?? $projects->content }}</textarea>
