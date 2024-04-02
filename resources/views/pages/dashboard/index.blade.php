@@ -14,6 +14,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Content</th>
                         <th scope="col">Slug</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Cover</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -29,6 +30,7 @@
                         </td>
                         <td>{{ $item->content }}</td>
                         <td>{{ $item->slug }}</td>
+                        <td>{{ $item->type ? $item->type->name : 'Non è stato selezionato un Tipo'}}</td>
                         <td>{{ $item->cover_image ? 'si' : 'no'}}</td>
                         <td>
                             <a class="btn btn-primary" href=" {{ route('dashboard.project.edit', $item->id ) }} ">
